@@ -22,3 +22,33 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+
+# DB設計
+
+users_table
+|id        |integer|null :false|
+|name      |integer|null :false|
+|email     |text   |null :false|
+|password  |text   |null :false|
+|password_confirmation|null :false|
+
+comments_table
+|id        |integer|null :false|
+|comment   |text   |null :false|
+|post_id   |references|foreign_key: true|
+|user_id   |references|foreign_key: true|
+
+posts_table
+|id        |integer|null :false|
+| caption  |integer|null :false|
+|user_id   |references|foreign_key: true|
+
+likes_table
+|id         |integer|null :false|
+|post_id   |references|foreign_key: true|
+|user_id   |references|foreign_key: true|
+
+photos_table
+|id   |integer        |null :false|
+|image|               |null :false|
+|post_id|references   |foreign_key :true|
